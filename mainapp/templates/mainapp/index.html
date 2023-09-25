@@ -1,0 +1,107 @@
+{% extends "mainapp/layout.html" %}
+
+{% block body %}
+<div class="container rounded border-bottom border-2 border-secondary d-none d-xxl-block" id="desktopform">
+    <form id="desktop-person-form">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-3 col-sm-3">
+                <label for="namedesktop" class="form-label">Full Name</label>
+                <input type="text" class="form-control" name="name" id="namedesktop">
+            </div>
+            <div class="col-3 col-sm-3">
+                <label for="phonenumberdesktop" class="form-label">Phone No.</label>
+                <input type="text" class="form-control" name="phonenumber" id="phonenumberdesktop">
+            </div>
+            <div class="col-2 col-sm-2">
+                <label for="classificationdesktop" class="form-label">Classification</label>
+                <input type="text" class="form-control" name="classification" id="classificationdesktop">
+            </div>
+            <div class="col-2 col-sm-2">
+                <label for="locationdesktop" class="form-label">Location</label>
+                <input type="text" class="form-control" name="location" id="locationdesktop">
+            </div>
+            <div class="col-2 col-sm-2">
+                <label for="googlemapsdesktop" class="form-label">Google Map</label>
+                <input type="url" class="form-control" name="googlemaps" id="googlemapsdesktop">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2 col-sm-2">
+                <label for="parkingdesktop" class="form-label">Parking</label>
+                <select class="form-select" name="parking" id="parkingdesktop">
+                    <option selected>-</option>
+                    <option value="Close">Close</option>
+                    <option value="Close Paid">Close Paid</option>
+                    <option value="Far">Far</option>
+                    <option value="Far Paid">Far Paid</option>
+                    <option value="No Parking">No Parking</option>
+                </select>
+            </div>
+            <div class="col-4 col-sm-4">
+                <label for="availabilitydesktop" class="form-label">Availability</label>
+                <div id="availabilitydesktop">
+                    <div class="input-group">
+                    <div class="input-group-text">From</div>
+                    <select class="form-select" name="startdate" id="startdatedesktop">
+                        <option selected>-</option>
+                        <option value="Sunday">Sunday</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                    </select>
+                    <div class="input-group-text">till</div>
+                    <select class="form-select" name="enddate" id="enddatedesktop">
+                        <option selected>-</option>
+                        <option value="Sunday">Sunday</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                    </select>
+                    </div>
+                    <div class="input-group">
+                    <div class="input-group-text">From</div>
+                    <input type="time" class="form-control" name="starttime" id="starttimedesktop" value="00:00">
+                    <div class="input-group-text">till</div>
+                    <input type="time" class="form-control" name="endtime" id="endtimedesktop" value="12:00">
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6">
+                <label for="commentsdesktop" class="form-label">Comments</label>
+                <textarea class="form-control" name="comments" id="commentsdesktop" maxlength="150"></textarea>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+    </form>
+</div>
+
+<div id="table" class="container g-0">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th class="namerow" scope="col">Name</th>
+            <th scope="col">Location</th>
+            <th scope="col">Parking</th>
+            <th scope="col">Visits</th>
+        </tr>
+        </thead>
+        <tbody id="tablebody">
+        
+        </tbody>
+    </table>
+</div>
+
+<div class="pagination">
+    <span class="step-links">
+
+    </span>
+</div>
+{% endblock %}
